@@ -1,0 +1,119 @@
+.projects {
+  padding: 100px 20px;
+
+  background-color: white;
+}
+
+.projects-container {
+  max-width: 1000px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 30px;
+}
+
+.project-card {
+  padding: 35px;
+
+  background-color: #f8fafc;
+
+  border-radius: 12px;
+
+  border: 1px solid #e2e8f0;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.project-card h3 {
+  font-size: 25px;
+
+  margin-bottom: 15px;
+}
+
+.project-card p {
+  color: #475569;
+
+  line-height: 1.7;
+
+  margin-bottom: 25px;
+}
+
+.technologies {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-bottom: 25px;
+}
+
+.technologies span {
+  padding: 7px 13px;
+
+  background-color: #dbeafe;
+
+  color: #1e40af;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+}
+
+.project-buttons {
+  display: flex;
+
+  gap: 12px;
+}
+
+.project-buttons a {
+  padding: 10px 17px;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition: all 0.3s ease;
+}
+
+.project-buttons a:first-child {
+  background-color: #111827;
+
+  color: white;
+}
+
+.project-buttons a:first-child:hover {
+  background-color: #374151;
+}
+
+.project-buttons a:last-child {
+  border: 1px solid #2563eb;
+
+  color: #2563eb;
+}
+
+.project-buttons a:last-child:hover {
+  background-color: #2563eb;
+
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,36 @@
+.certificate-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.certificate-button,
+.certificate-download {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.certificate-button {
+  background-color: #2563eb;
+  color: white;
+}
+
+.certificate-button:hover {
+  background-color: #1d4ed8;
+}
+
+.certificate-download {
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  background-color: white;
+}
+
+.certificate-download:hover {
+  background-color: #2563eb;
+  color: white;
+}
