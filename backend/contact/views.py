@@ -1,3 +1,5 @@
+import os
+import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
@@ -72,19 +74,24 @@ def contact_message(request):
         message=message
     )
     send_mail(
-        subject=f"New Portfolio Contact: {name}",
-        message=f"""
-    You received a new message from your portfolio.
+    subject=f"New Portfolio Contact: {name}",
 
-    Name: {name}
-    Email: {email}
+    message=f"""
+You received a new message from your portfolio.
 
-    Message:
-    {message}
-    """,
-        from_email="portfolio@example.com",
-        recipient_list=["ishakumari3711@gmail.com"],
-    )
+Name: {name}
+Email: {email}
+
+Message:
+{message}
+""",
+
+    from_email=os.getenv("EMAIL_HOST_USER"),
+
+    recipient_list=[os.getenv("EMAIL_HOST_USER")],
+
+    fail_silently=False,
+)
 
     return JsonResponse(
         {
