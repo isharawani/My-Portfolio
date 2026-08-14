@@ -20,45 +20,43 @@ function Contact() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    setStatus("Sending...");
+  setStatus("Sending...");
 
-    try {
-      const response = await fetch(
-        "https://my-portfolio-backend-qhn0.onrender.com/api/contact/",
-        {
-          method: "POST",
-
-          headers: {
+  try {
+    const response = await fetch(
+    "http://127.0.0.1:8000/api/contact/",
+    {
+        method: "POST",
+        headers: {
             "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify(formData),
-        }
-      );
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus(data.message);
-
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-      } else {
-        setStatus(data.message || "Something went wrong.");
-      }
-    } catch (error) {
-      console.error(error);
-
-      setStatus(
-        "Unable to connect to the server. Please try again."
-      );
+        },
+        body: JSON.stringify(formData),
     }
-  };
+);
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setStatus(data.message);
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } else {
+      setStatus(data.message || "Something went wrong.");
+    }
+  } catch (error) {
+    console.error("CONTACT ERROR:", error);
+
+    setStatus(
+      "Unable to connect to the server. Please try again."
+    );
+  }
+};
 
   return (
     <section className="contact" id="contact">
