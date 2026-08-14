@@ -1,12 +1,12 @@
 import os
 import json
+
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
 
-import json
-
 from .models import ContactMessage
+
 
 @csrf_exempt
 def contact_message(request):
@@ -21,6 +21,7 @@ def contact_message(request):
             status=405
         )
 
+    # Read JSON data
     try:
         data = json.loads(request.body)
 
@@ -38,7 +39,7 @@ def contact_message(request):
     email = data.get("email", "").strip()
     message = data.get("message", "").strip()
 
-    # Validate required fields
+    # Validate name
     if not name:
         return JsonResponse(
             {
@@ -48,6 +49,7 @@ def contact_message(request):
             status=400
         )
 
+    # Validate email
     if not email:
         return JsonResponse(
             {
@@ -57,6 +59,7 @@ def contact_message(request):
             status=400
         )
 
+    # Validate message
     if not message:
         return JsonResponse(
             {
@@ -65,18 +68,20 @@ def contact_message(request):
             },
             status=400
         )
-    
 
-    # Save message
+    # Save message to database
     contact = ContactMessage.objects.create(
         name=name,
         email=email,
         message=message
     )
-    send_mail(
-    subject=f"New Portfolio Contact: {name}",
 
-    message=f"""
+    # Send email
+    try:
+        send_mail(
+            subject=f"New Portfolio Contact: {name}",
+
+            message=f"""
 You received a new message from your portfolio.
 
 Name: {name}
@@ -86,13 +91,30 @@ Message:
 {message}
 """,
 
-    from_email=os.getenv("EMAIL_HOST_USER"),
+            from_email=os.getenv("EMAIL_HOST_USER"),
 
-    recipient_list=[os.getenv("EMAIL_HOST_USER")],
+            recipient_list=[
+                os.getenv("EMAIL_HOST_USER")
+            ],
 
-    fail_silently=False,
-)
+            fail_silently=False,
+        )
 
+    except Exception as e:
+
+        # Print exact email error in Render logs
+        print("EMAIL ERROR:", repr(e))
+
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "Email sending failed.",
+                "error": str(e)
+            },
+            status=500
+        )
+
+    # Successful response
     return JsonResponse(
         {
             "success": True,
