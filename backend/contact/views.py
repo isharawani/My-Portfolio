@@ -11,7 +11,7 @@ from .models import ContactMessage
 @csrf_exempt
 def contact_message(request):
 
-    # Only allow POST requests
+    # Only POST allowed
     if request.method != "POST":
         return JsonResponse(
             {
@@ -21,7 +21,7 @@ def contact_message(request):
             status=405
         )
 
-    # Read JSON data
+    # Read JSON
     try:
         data = json.loads(request.body)
 
@@ -39,7 +39,7 @@ def contact_message(request):
     email = data.get("email", "").strip()
     message = data.get("message", "").strip()
 
-    # Validate name
+    # Validation
     if not name:
         return JsonResponse(
             {
@@ -49,7 +49,6 @@ def contact_message(request):
             status=400
         )
 
-    # Validate email
     if not email:
         return JsonResponse(
             {
@@ -59,7 +58,6 @@ def contact_message(request):
             status=400
         )
 
-    # Validate message
     if not message:
         return JsonResponse(
             {
@@ -69,14 +67,32 @@ def contact_message(request):
             status=400
         )
 
-    # Save message to database
-    contact = ContactMessage.objects.create(
-        name=name,
-        email=email,
-        message=message
-    )
+    # -------------------------
+    # SAVE MESSAGE TO DATABASE
+    # -------------------------
 
-    # Send email
+    try:
+        contact = ContactMessage.objects.create(
+            name=name,
+            email=email,
+            message=message
+        )
+
+    except Exception as e:
+        print("DATABASE ERROR:", repr(e))
+
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "Database error. Check Render logs."
+            },
+            status=500
+        )
+
+    # -------------------------
+    # SEND EMAIL
+    # -------------------------
+
     try:
         send_mail(
             subject=f"New Portfolio Contact: {name}",
@@ -101,20 +117,20 @@ Message:
         )
 
     except Exception as e:
-
-        # Print exact email error in Render logs
         print("EMAIL ERROR:", repr(e))
 
         return JsonResponse(
             {
                 "success": False,
-                "message": "Email sending failed.",
-                "error": str(e)
+                "message": "Message saved, but email could not be sent."
             },
             status=500
         )
 
-    # Successful response
+    # -------------------------
+    # SUCCESS
+    # -------------------------
+
     return JsonResponse(
         {
             "success": True,
