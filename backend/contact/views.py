@@ -1,9 +1,10 @@
 import os
 import json
 
+import resend
+
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
 
 from .models import ContactMessage
 
@@ -11,7 +12,10 @@ from .models import ContactMessage
 @csrf_exempt
 def contact_message(request):
 
-    # Only POST allowed
+    # -------------------------
+    # ONLY POST ALLOWED
+    # -------------------------
+
     if request.method != "POST":
         return JsonResponse(
             {
@@ -21,7 +25,10 @@ def contact_message(request):
             status=405
         )
 
-    # Read JSON
+    # -------------------------
+    # READ JSON
+    # -------------------------
+
     try:
         data = json.loads(request.body)
 
@@ -34,12 +41,18 @@ def contact_message(request):
             status=400
         )
 
-    # Get form data
+    # -------------------------
+    # GET FORM DATA
+    # -------------------------
+
     name = data.get("name", "").strip()
     email = data.get("email", "").strip()
     message = data.get("message", "").strip()
 
-    # Validation
+    # -------------------------
+    # VALIDATION
+    # -------------------------
+
     if not name:
         return JsonResponse(
             {
@@ -90,31 +103,47 @@ def contact_message(request):
         )
 
     # -------------------------
-    # SEND EMAIL
+    # SEND EMAIL USING RESEND
     # -------------------------
 
     try:
-        send_mail(
-            subject=f"New Portfolio Contact: {name}",
+        resend_api_key = os.getenv("RESEND_API_KEY")
+        recipient_email = os.getenv("EMAIL_HOST_USER")
 
-            message=f"""
-You received a new message from your portfolio.
+        if not resend_api_key:
+            raise ValueError("RESEND_API_KEY is not configured.")
 
-Name: {name}
-Email: {email}
+        if not recipient_email:
+            raise ValueError("EMAIL_HOST_USER is not configured.")
 
-Message:
-{message}
-""",
+        resend.api_key = resend_api_key
 
-            from_email=os.getenv("EMAIL_HOST_USER"),
+        params = {
+            "from": "Portfolio <onboarding@resend.dev>",
+            "to": [recipient_email],
+            "subject": f"New Portfolio Contact: {name}",
+            "html": f"""
+                <h2>New Portfolio Contact</h2>
 
-            recipient_list=[
-                os.getenv("EMAIL_HOST_USER")
-            ],
+                <p>
+                    <strong>Name:</strong> {name}
+                </p>
 
-            fail_silently=False,
-        )
+                <p>
+                    <strong>Email:</strong> {email}
+                </p>
+
+                <p>
+                    <strong>Message:</strong>
+                </p>
+
+                <p>
+                    {message}
+                </p>
+            """,
+        }
+
+        resend.Emails.send(params)
 
     except Exception as e:
         print("EMAIL ERROR:", repr(e))
