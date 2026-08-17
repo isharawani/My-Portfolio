@@ -26,7 +26,7 @@ function Contact() {
 
   try {
     const response = await fetch(
-  `${import.meta.env.VITE_API_URL}/api/contact/`,
+  "https://my-portfolio-backend-qhm0.onrender.com/api/contact/",
     {
         method: "POST",
         headers: {
