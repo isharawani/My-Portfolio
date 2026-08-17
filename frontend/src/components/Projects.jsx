@@ -8,7 +8,7 @@ function Projects() {
       description:
         "A responsive personal portfolio website built to showcase my skills, projects, education, certifications, achievements, and professional profile.",
       technologies: ["React", "CSS", "Django", "Python"],
-      github: "https://github.com/isharawani/react-Portfolio-project",
+      github: "https://github.com/isharawani/My-Portfolio",
       live: "#",
     },
 
