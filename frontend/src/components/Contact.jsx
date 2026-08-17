@@ -26,14 +26,14 @@ function Contact() {
 
   try {
     const response = await fetch(
-  "https://my-portfolio-backend-qhm0.onrender.com/api/contact/",
-    {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-    }
+  `${import.meta.env.VITE_API_URL}/api/contact/`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  }
 );
 
     const data = await response.json();
