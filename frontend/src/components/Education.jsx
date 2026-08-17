@@ -14,14 +14,14 @@ function Education() {
       institution: "Tata DAV School",
       duration: "2021 – 2022",
       result: "Percentage: 73.8%",
-      location: "",
+      location: "Sijua-Bhelatand, Jharkhand",
     },
     {
       degree: "Secondary Education",
       institution: "Doon Public School",
       duration: "2019 – 2020",
       result: "Percentage: 83.6%",
-      location: "",
+      location: "Koylanagar-Dhanbad, Jharkhand",
     },
   ];
 

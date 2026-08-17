@@ -55,7 +55,7 @@ function About() {
           </div>
 
           <a
-            href="/resume.pdf"
+            href="/resume/resume.pdf"
             className="resume-button"
             target="_blank"
             rel="noreferrer"

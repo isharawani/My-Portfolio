@@ -3,7 +3,7 @@ import "./Achievements.css";
 function Achievements() {
   const achievements = [
     {
-      icon: "💻",
+      icon: "🎓",
       title: "200+ DSA Problems Solved",
       category: "Problem Solving",
       description:

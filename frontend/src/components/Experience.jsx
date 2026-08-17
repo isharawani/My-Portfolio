@@ -4,79 +4,100 @@ function Experience() {
   const experiences = [
     {
       role: "Python Developer Intern",
-      organization: "Fobes Skill iTech Pvt Ltd",
+      company: "Fobes Skill iTech Pvt. Ltd.",
+      duration: "2026",
       type: "Internship",
-      duration: "1 Month",
-      status: "Selected",
       description:
-        "Selected for a Python Developer Internship opportunity focused on developing practical Python programming and software development skills.",
-      technologies: ["Python", "Programming", "Software Development"],
+        "Worked on Python development and strengthened practical programming skills through project-based learning and software development tasks.",
+      skills: ["Python", "Programming", "Problem Solving"],
+    },
+
+    {
+      role: "Full Stack Web Developer Intern",
+      company: "Skill Nexis",
+      duration: "2026",
+      type: "Internship",
+      description:
+        "Worked on full stack web development concepts and gained practical exposure to frontend and backend development.",
+      skills: ["HTML", "CSS", "JavaScript", "Web Development"],
     },
 
     {
       role: "Python Development Intern",
-      organization: "She Can Foundation",
+      company: "She Can Foundation",
+      duration: "2026",
       type: "Internship",
-      duration: "2 Weeks",
-      status: "Selected",
       description:
-        "Selected for a Python Development Internship involving Django development, REST APIs, Flask microservices and integration of machine learning concepts.",
-      technologies: [
-        "Python",
-        "Django",
-        "REST API",
-        "Flask",
-        "Machine Learning",
-      ],
+        "Gained practical exposure to Python-based web development, Django, REST APIs, and backend development through internship projects.",
+      skills: ["Python", "Django", "REST API", "Backend Development"],
     },
   ];
 
   return (
     <section className="experience" id="experience">
-      <div className="section-heading">
+
+      <div className="experience-header">
         <p>My Professional Journey</p>
+
         <h2>Experience</h2>
+
+        <span>
+          Internship experiences and practical opportunities that
+          have helped me develop my technical and professional skills.
+        </span>
       </div>
 
       <div className="experience-container">
-        {experiences.map((experience) => (
-          <div className="experience-card" key={experience.organization}>
 
-            <div className="experience-top">
-              <div>
-                <span className="experience-type">
-                  {experience.type}
-                </span>
+        {experiences.map((experience, index) => (
+          <div
+            className="experience-item"
+            key={`${experience.company}-${experience.role}`}
+          >
 
-                <h3>{experience.role}</h3>
-
-                <h4>{experience.organization}</h4>
-              </div>
-
-              <span className="experience-status">
-                {experience.status}
-              </span>
+            <div className="experience-number">
+              {String(index + 1).padStart(2, "0")}
             </div>
 
-            <p className="experience-duration">
-              {experience.duration}
-            </p>
+            <div className="experience-card">
 
-            <p className="experience-description">
-              {experience.description}
-            </p>
+              <div className="experience-top">
 
-            <div className="experience-technologies">
-              {experience.technologies.map((technology) => (
-                <span key={technology}>
-                  {technology}
+                <div>
+                  <span className="experience-type">
+                    {experience.type}
+                  </span>
+
+                  <h3>{experience.role}</h3>
+
+                  <h4>{experience.company}</h4>
+                </div>
+
+                <span className="experience-duration">
+                  {experience.duration}
                 </span>
-              ))}
+
+              </div>
+
+              <p className="experience-description">
+                {experience.description}
+              </p>
+
+              <div className="experience-skills">
+                {experience.skills.map((skill) => (
+                  <span key={skill}>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
             </div>
 
           </div>
         ))}
+
       </div>
+
     </section>
   );
 }

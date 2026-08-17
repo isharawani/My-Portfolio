@@ -79,17 +79,17 @@ function Contact() {
 
           <div className="contact-links">
 
-            <a href="mailto:YOUR_EMAIL@gmail.com">
-              <span>📧</span>
+            <a href="https://leetcode.com/u/IshaKumari0311/">
+              <span>⭐</span>
 
               <div>
-                <strong>Email</strong>
-                <p>YOUR_EMAIL@gmail.com</p>
+                <strong>Leetcode</strong>
+                <p>Leetcode Profile</p>
               </div>
             </a>
 
             <a
-              href="https://github.com/YOUR_USERNAME"
+              href="https://github.com/isharawani"
               target="_blank"
               rel="noreferrer"
             >
@@ -102,7 +102,7 @@ function Contact() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/YOUR_USERNAME/"
+              href="https://www.linkedin.com/in/isha-kumari-3bb37040b"
               target="_blank"
               rel="noreferrer"
             >

@@ -33,6 +33,14 @@ function Navbar() {
         </li>
 
         <li>
+          <a href="#certifications">Certifications</a>
+        </li>
+
+        <li>
+          <a href="#achievements">Achievements</a>
+        </li>
+
+        <li>
           <a href="#contact">Contact</a>
         </li>
       </ul>

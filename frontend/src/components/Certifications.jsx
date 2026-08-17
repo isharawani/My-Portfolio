@@ -8,16 +8,26 @@ function Certifications() {
       date: "July 2025",
       description:
         "Completed practical tasks in Data Analysis and Forensic Technology.",
-      certificateFile: "/certificates/deloitte-data-analytics.pdf",
+      certificateFile: "/certificates/DELOITTE CERTIFICATE.pdf",
     },
 
     {
-      name: "Python For Beginners Course In-Depth",
-      organization: "Udemy",
-      date: "February 2026",
+      name: "AICTE APPROVED-PYTHON DEVELOPER INTER",
+      organization: "She Can",
+      date: "Aug 2026",
       description:
-        "Completed an in-depth beginner-level Python course covering fundamental Python concepts and programming skills.",
-      certificateFile: "/certificates/python-for-beginners.pdf",
+        "Completed python in-depth  to learn solving problem, making project, build technical skills. " ,
+      certificateFile: "/certificates/Isha_Kumari_Hired_Certificate.pdf",
+    },
+
+
+    {
+      name: "AI-SKILL FEST 2026",
+      organization: "Microsoft",
+      date: "june 2026",
+      description:
+        "Completed an in-depth AI ETHICS , AI APPLICATIONS, BUILD AUTOMATION, AI TOOL ADOPTION, RESPONSIBLE AI, AI LITERACY. ",
+      certificateFile: "/certificates/ai-skills-fest-2026.png",
     },
   ];
 
