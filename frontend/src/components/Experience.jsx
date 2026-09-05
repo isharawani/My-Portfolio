@@ -3,33 +3,31 @@ import "./Experience.css";
 function Experience() {
   const experiences = [
     {
-      role: "Python Developer Intern",
-      company: "Fobes Skill iTech Pvt. Ltd.",
-      duration: "2026",
-      type: "Internship",
-      description:
-        "Worked on Python development and strengthened practical programming skills through project-based learning and software development tasks.",
-      skills: ["Python", "Programming", "Problem Solving"],
-    },
-
-    {
       role: "Full Stack Web Developer Intern",
       company: "Skill Nexis",
-      duration: "2026",
+      duration: "Working...",
       type: "Internship",
       description:
         "Worked on full stack web development concepts and gained practical exposure to frontend and backend development.",
       skills: ["HTML", "CSS", "JavaScript", "Web Development"],
+    },
+    {
+      role: "Python Developer ",
+      company: "GeeksforGeeks",
+      duration: "2025-2026",
+      type: "Training",
+      description:
+        "Learned Python programming, OOP, data structures, algorithms, and problem-solving.",
+      skills: ["Python", "Programming", "Problem Solving"],
     },
 
     {
       role: "Python Development Intern",
       company: "She Can Foundation",
       duration: "2026",
-      type: "Internship",
-      description:
-        "Gained practical exposure to Python-based web development, Django, REST APIs, and backend development through internship projects.",
-      skills: ["Python", "Django", "REST API", "Backend Development"],
+      type: "Selected",
+      description: "Selected for a Python Development Internship.",
+      skills: ["Python","Django","object-oriented programming (OOP)"],
     },
   ];
 

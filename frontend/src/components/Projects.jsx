@@ -7,7 +7,7 @@ function Projects() {
       title: "Full Stack Portfolio",
       description:
         "A responsive personal portfolio website built to showcase my skills, projects, education, certifications, achievements, and professional profile.",
-      technologies: ["React", "CSS", "Django", "Python"],
+      technologies: ["React", "HTML-CSS", "Django", "Python"],
       github: "https://github.com/isharawani/My-Portfolio",
       live: "#",
     },
@@ -22,11 +22,11 @@ function Projects() {
     },
 
     {
-      title: "Full Stack Development in Python",
+      title: "Task Management Application (Working-on)",
       description:
-        "Web development projects built while learning Python-based full stack development, including backend development, database integration, APIs, and frontend technologies.",
-      technologies: ["Python", "Django", "HTML", "CSS", "SQL"],
-      github: "https://github.com/isharawani/Full-Stack-in-Python",
+        "full-stack task management web application where users can securely register and log in, create and manage tasks, mark them as completed, filter tasks, and upload images.",
+      technologies: ["HTML", "CSS", "JavaScript", "MERN Stack", "REST API", "JWT"],
+      github: "https://github.com/isharawani/SkillNexis-PROJECTS",
       live: "#",
     },
   ];

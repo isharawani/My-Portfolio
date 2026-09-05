@@ -9,8 +9,12 @@ function Skills() {
 
     {
       title: "Web Development",
-      skills: ["HTML", "CSS", "React"],
+      skills: ["HTML", "CSS", "React", ],
     },
+    {
+  title: "Backend & APIs",
+  skills: ["Django", "REST API"],
+   },
 
     {
       title: "Computer Science",
@@ -23,7 +27,7 @@ function Skills() {
     },
 
     {
-      title: "Artificial Intelligence",
+      title: "Artificial Intelligence (Learning)",
       skills: ["Artificial Intelligence", "Machine Learning"],
     },
   ];

@@ -21,7 +21,7 @@ function About() {
           <p>
             I have a strong interest in software development and
             enjoy building responsive web applications using Python,
-            JavaScript, React, HTML and CSS.
+            JavaScript, React, Django, HTML and CSS.
           </p>
 
           <p>
@@ -39,7 +39,7 @@ function About() {
 
             <div>
               <strong>College</strong>
-              <span>Bengal College of Engineering and Technology</span>
+              <span>Bengal College of Engineering and Technology, Durgapur</span>
             </div>
 
             <div>
@@ -49,7 +49,7 @@ function About() {
 
             <div>
               <strong>Focus</strong>
-              <span>Web Development & AI/ML</span>
+              <span>Full Stack Developer & AI/ML (Enthusiast)</span>
             </div>
 
           </div>
