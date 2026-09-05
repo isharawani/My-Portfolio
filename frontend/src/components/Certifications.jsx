@@ -9,7 +9,7 @@ function Certifications() {
   organization: "SkillNexis",
   date: "AUG-SEPT 2026",
   description: "Offer letter received for the Full Stack Web Developer Internship.",
-  certificate: "/certificates/skill-nexis offer letter.pdf",
+  certificateFile: "/certificates/skill-nexis offer letter.pdf",
    },
     {
       name: "Deloitte Data Analytics Job Simulation",
