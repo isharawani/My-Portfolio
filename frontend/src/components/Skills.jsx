@@ -13,7 +13,7 @@ function Skills() {
     },
     {
   title: "Backend & APIs",
-  skills: ["Django", "REST API"],
+  skills: ["Django", "Node.js", "REST API"],
    },
 
     {

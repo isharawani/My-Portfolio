@@ -34,10 +34,7 @@ function Hero() {
           </h2>
 
           <p className="hero-description">
-            I build responsive web applications and enjoy solving
-            challenging problems using Python, React and modern
-            web technologies. I'm also exploring Artificial
-            Intelligence and Machine Learning.
+            I build responsive web applications and enjoy solving challenging problems using Python, React and modern web technologies. I'm also exploring Artificial Intelligence and Machine Learning.   
           </p>
 
           <div className="hero-buttons">
